@@ -30,61 +30,52 @@ const autores=
 
 ]
 
+//APLICAR PROMESAS
 //función que busca autores por ID
-function buscarAutorPorId(id,callback)
+function buscarAutorPorId(id)
 {
-    //Buscamos en el arreglo libros uno que tenga ese ID
+    return new Promise((resolve,reject)=>{
+        //Buscamos en el arreglo libros uno que tenga ese ID
     const autor=autores.find(
         (autor)=>
             {
                 return autor.id===id  ;
             }
     )
-    //Si no existe generamos un error y lo enviamos al callback
+    //Si no existe generamos un error y rechazamos la promesa
     if(!autor)
     {
         const error= new Error();
         error.message="El autor no existe!!"
-        return callback(error);
+        reject (error);
     }
-    callback(null,autor)
+    resolve (autor)
+    })
+    
 }
 
 //función que busca libros por ID
 function buscarLibroPorId(id,callback)
 {
-    //Buscamos en el arreglo libros uno que tenga ese ID
-    const libro=libros.find(
-        (libro)=>libro.id===id  
-    )
-    //Si no existe generamos un error y lo enviamos al callback
-    if(!libro)
-    {
-        const error= new Error();
-        error.message="El libro no existe!!"
-        return callback(error);
-    }
-    callback(null,libro)
+    return new Promise((resolve,reject)=>{
+        //Buscamos en el arreglo libros uno que tenga ese ID
+        const libro=libros.find(
+            (libro)=>libro.id===id  
+        )
+        //Si no existe generamos un error y lo enviamos al callback
+        if(!libro)
+        {
+            const error= new Error();
+            error.message="El libro no existe!!"
+            reject (error);
+        } //De no existir error aceptamos la promesa
+        resolve (libro)
+        
+    })
 }
 
-
-buscarLibroPorId(2,(err,libro)=>{
-    if(err)
-    {
-        return console.log(err.message)
-    }
-    buscarAutorPorId(libro.id,(err,autor)=>{
-    if(err)
-    {
-        return console.log(err.message);
-    }
-    console.log(`El libro ${libro.titulo} fue escrito por ${autor.nombre}`);
-    })
-    
-})
-
 let libroAuxiliar={};
-buscarLibroPorId(30).then(libro=>{
+buscarLibroPorId(3).then(libro=>{
     libroAuxiliar=libro;
     return buscarAutorPorId(libro.idautor);
 }).then(autor=>{

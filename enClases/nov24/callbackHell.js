@@ -67,18 +67,21 @@ function buscarLibroPorId(id,callback)
     callback(null,libro)
 }
 
-
+//CALLBACK HELL
 buscarLibroPorId(2,(err,libro)=>{
     if(err)
     {
         return console.log(err.message)
     }
-    buscarAutorPorId(libro.id,(err,autor)=>{
+    buscarAutorPorId(libro.idautor,(err,autor)=>{
     if(err)
     {
         return console.log(err.message);
     }
-    console.log(`El libro ${libro.titulo} fue escrito por ${autor.nombre}`);
+    libro.autor=autor;
+    delete libro.idautor;
+    console.log(libro)
+    //console.log(`El libro ${libro.titulo} fue escrito por ${autor.nombre}`);
     })
     
 })
