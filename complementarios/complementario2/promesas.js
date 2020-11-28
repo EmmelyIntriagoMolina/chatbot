@@ -137,6 +137,18 @@ buscarPedidoPorId(2).then(pedido=>{
 }).then(cliente=>{
     pedidoAuxiliar.cliente=cliente;
     delete pedidoAuxiliar.idcliente; 
+ 
+})
+.catch(err=>{
+    console.log(err.message)
+})
+
+buscarPedidoPorId(2).then(pedido=>{
+    pedidoAuxiliar=pedido;
+    return buscarProductoPorId(pedido.idproducto); 
+}).then(producto=>{
+    pedidoAuxiliar.producto=producto;
+    delete pedidoAuxiliar.idproducto; 
     console.log(pedidoAuxiliar)
 })
 .catch(err=>{

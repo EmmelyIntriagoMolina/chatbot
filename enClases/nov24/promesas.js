@@ -85,5 +85,6 @@ buscarLibroPorId(3).then(libro=>{
 }).catch(err=>{
     console.log(err.message);
 })
+
 //retornar libroAuxiliar a nuestro usuario. Para que en el front-end
 //muestre la información en el formato que él prefiera
