@@ -34,9 +34,6 @@ const autores=
 async function buscarAutorPorId(id,callback)
 {
     //Buscamos en el arreglo libros uno que tenga ese ID
-    
-
-    
     const autor=autores.find(
         (autor)=>
             {
