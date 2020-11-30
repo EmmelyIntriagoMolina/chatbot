@@ -126,7 +126,6 @@ function buscarProductoPorId(id,callback)
             reject(error);
         }
         resolve(producto)
-
     })
 }
 
@@ -137,7 +136,6 @@ buscarPedidoPorId(2).then(pedido=>{
 }).then(cliente=>{
     pedidoAuxiliar.cliente=cliente;
     delete pedidoAuxiliar.idcliente; 
- 
 })
 .catch(err=>{
     console.log(err.message)
