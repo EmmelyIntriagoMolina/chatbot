@@ -22,4 +22,4 @@ usuarioInvitado.save(()=>{
     console.log(resultado)
 })
 //Traer un usuario específico
-Usuario.find({nombre:"Invitado"}).then(console.log)*/
+Usuario.find({nombre:"Invitado"}).then(console.log)*/ 
