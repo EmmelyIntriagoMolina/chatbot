@@ -4,13 +4,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose
 
 
-const NoticiasSchema = new Schema(
+const UsuariosSchema = new Schema(
     {
-        titulo: {type:String},
-        enlace: {type:String}
+        nombre: {type:String},
+        apellido: {type:String}
     },
     { timestamps: { createdAt: true, updateAt:true  } }
 )
 
 
-module.exports = mongoose.model("Noticias", NoticiasSchema);
+module.exports = mongoose.model("Usuarios", UsuariosSchema);

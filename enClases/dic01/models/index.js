@@ -1,3 +1,4 @@
-module.exports={
-    Noticias:require('./noticias.model')
-}
+module.exports = {
+    Noticias: require('./noticias.model'),
+    Usuarios: require('./usuarios.model')
+};
