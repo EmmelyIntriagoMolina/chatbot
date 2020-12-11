@@ -1,62 +1,61 @@
-const fs=require('fs');
-const path =require('path')
-const express= require('express');
+const express = require('express');
+const app = express();
+const PUERTO=3000;
 
-const PUERTO=3000
-const index = fs.readFileSync('./index.html');
-const about = fs.readFileSync('./about.html');
-const server= express();
+let arreglo=[];
 
+app.use('/public', express.static(__dirname+'/public'))
+app.use(express.json())
 
-//dfinir ruta del proyecto
-//var paginaDeError = path.join( _dirname, "./error.html")
-
-//utilizando una funcion normal y llamándola en linea
-server.get("/", devolverIndex)
-
-//utilizando una función flecha
-server.get("/about", (req,res)=>{
-    res.write(about)
-})
-//anteriormente bodyparser, ahora viene en el CORE de NODE
-//Middleware son hooks más fuertes completos
-server.use(express.json())
-
-server.listen(PUERTO,()=>{
-    console.log(`Servidor ejecutándose por el puerto ${PUERTO}`)
-})
-//definiendo un Middleware muy básico
-server.use((req,res,next)=>{
-    res.status(404).sendFile(paginaDeError)
+//GET con todos los elementos
+app.get('/',(req,res)=>{
+    res.send(arreglo)
 })
 
-function devolverIndex(req,res)
-{
-    res.write(index)
-}
+
+//GET individual
+//localhost:3000/individual/pegazo
+app.get('/individual/:nombrex',(req,res)=>{
+    res.send(arreglo.filter(p=>{return p.nombre == req.params.nombrex;})[0])
+})
+
+//POST para agregar un recurso
+app.post('/',(req,res)=>{
+    arreglo.push(req.body)
+    res.send({"Mensaje":"La mascota fue almacenada sin problemas!"})
+})
+
+//Modificar un recurso
 /*
-const fs = require('fs')
-const http = require('http')
-const index = fs.readFileSync('./index.html');
-const about = fs.readFileSync('./about.html');
-http.createServer((request,response)=>{
-    const { url } = request;
-    if (url==='/') 
-    {
-        response.writeHead(200, {"Content-type":"text/html"});
-        response.write(index);
-    }
-    else if (url==='/about')
-    {
-        response.writeHead(200, {"Content-type":"text/html"});
-        response.write(about);
-    }
-    else
-    {
-        response.writeHead(404, {"Content-type":"text/html"});
-        response.write("Not found!!");
-    }
+{"nombre":"pegazo"
+"raza:"dela calle"
+"color":"amarillo"
+}
+*/
+app.put('/',(req,res)=>{
+    //primero filtrar el elemento que queremos editar
+    let auxiliar=req.body
+    filtrado = arreglo.filter(p=>{return p.nombre === req.body.nombre;})[0]
+    //modificar los atributos
+    filtrado.raza=req.body.raza;
+    filtrado.color=req.body.color;
+    res.send({"Mensaje":"La mascota fue actualizada correctamente"})
 })
-.listen(3000, ()=>{
-    console.log('Servidor corriendo')
-})*/
+
+//Eliminar un recurso
+//localhost:3000/pegazo
+/*
+pegazo 
+pegazo2
+pegazo3 
+*/
+app.delete('/',(req,res)=>{
+    arreglo = arreglo.filter(p=>{return p.nombre !== req.params.nombrex;})
+    res.send({"Mensaje":"Eliminado correctamente"})
+})
+
+app.listen(PUERTO,() =>{
+    console.log(`El servidor está escuchando por el puerto ${PUERTO}`);
+});
+
+
