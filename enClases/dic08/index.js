@@ -46,7 +46,7 @@ app.put('/',(req,res)=>{
 //localhost:3000/pegazo
 /*
 pegazo 
-pegazo2
+pegazo2 
 pegazo3 
 */
 app.delete('/',(req,res)=>{
