@@ -3,5 +3,17 @@ if (process.env.NODE_ENV !== "production")
     require('dotenv').config()
 }
 module.exports = {
-    MONGO_URI : process.env.MONGO_URI
-}
+    //URL Base de Datos
+    MONGO_URI : process.env.MONGO_URI,
+
+    //Facebook App credentials
+    FB_PAGE_TOKEN: "EAAGDqMrmiVMBAPRlbpqRZBHZB7ZA2V6mYHod3sj5CfBzO1aGbYaTfhuwHgafFVqskZChTufF5eptzuSDtJu3RCaLmXfg3YdcS2OfZCRXUT1O0OdzXtbF5f5CSEqyS0Y6zja0oLZC1ZBM1KuyTKQCp1KsRYIVDPp9YmE0HTxiQZBcuAZDZD",
+    FB_VERIFY_TOKEN: "vendedorBotToken",
+    FB_APP_SECRET: "75969a85256c581bd2099c71bfaf0cf4",
+
+    //Google project credentials
+    GOOGLE_PROJECT_ID: "vendedorbot-wtcn",
+    DF_LANGUAGE_CODE: "es",
+    GOOGLE_CLIENT_EMAIL: "dialogflow-integrations@vendedorbot-wtcn.iam.gserviceaccount.com",
+    GOOGLE_PRIVATE_KEY: "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC1v9XlmG3Ju+Ti\nE3VWlxoflXLp284d3jcSJAo3REvD4dctrtFBkoOFIRNa6OTwAeKhbzdCtwPvO9Ad\nGoGd93fcf3KZHt6SF3GpA/PiqqSyCVcGQNrmSarpLIItZdWxv+s37EF/Ax8e3MtY\n8ROcY34QnaELm3T7kltXgU8T9QTba5HnhBIt8IIoDKhSaakeEtuRMJxOfwQH6jPH\nywjKRjEATgOSOgsGs0wu9lj2KkTVPeUEu0VLC+GeF1csuX+mP1wQePTYcrzEL9FJ\n5TzItYuIe3maZLQdXVxpfVSSLbfzgxISvBDGLzbrN2rHZd0M0yqgS4qZaB/7P+TO\njesiSmpPAgMBAAECggEABVbOkB3Aw+WTsn5DLLk9n8XmB/at1i2r99EDcLP3PkNQ\nQlvZj2U8jrxLOnyPanmJCV91kgLuHW/Lmk19XmS2/+mQxF6J5GSNeI0JghQdcyCR\nHOQ/gtpYRKO8oz+pJRKakRxULuUcP0MSwUqteniD+W6Jx5ZKESJMFUvhDAp7mX0l\nI5HB6orKwlKGXyNYmRlRHKK8/jGldDW3QuXzRGD2wfqyTISFLlz0aQ1LkK2UPSw3\nRFA1SHAt86mIWTT7Dm9R9gH0YsGJEGz/QUrRRHGDWjtPBHNS3C4gt30l4WWlCjzr\nXDgUJ2dqQinsCAjaKcuwn43CVEi83Zecn+WhgbUbEQKBgQDastOYGmM8OiDDJrzV\naI9k7AhoDlx0fNRVd5Wykg1GokMxDdOjQH7Pj1jFm357NMlooAiJF6u9Ytbq2m+g\nzrAk+mhaDFHJoEqx5Py7UCgFUZoOzDOnfyYHgriXM5sz+mbhb7froNkF7AmFfMg7\nnHOw4q95b99BRHAsH18lGOyNqQKBgQDUv6xdMkrV/xEMvNB0Q831avM9+zNCMA0W\ntw5TFoUtwxHkViKZrwU1ZOVfQyzLwf326HgTED007tyLkyodRMhTWc2Qbzx/skjk\n0ZDkQ4L1QAbaQMDHqC0ElBQANhRApVuviE3soLfDe/EaByQGHaPINLOPOnjkulLJ\nsjUDjrcDNwKBgDSufTAXsy3v5rJ742MZE+nAvemrA/R/mXqZGvNwIUiRj9QCO6gI\nwkNniX/YjChLt/S/EC9OB23QoGrkgZ1gDKhrtbVzYERMm5Gs0oCgt3NIi+7im9LO\nWy/V+ndZ1Bo6SIwnqEtXbM/zYvvH6kgJ0QicIp8DJumG/epzCC1ciqc5AoGANUEp\nj0aojvrDNNIKyB+07YrxCoHX6eiHTjlSX6AShEsBLowVKy0xe5UfCYKSMwsDXIwC\nipsVBywHjvSupRbzolGncFE37qsdLhH7V/hCTsvRK07sMs45Pp0miIsA9NGvqrfO\n8b2lYkyjJKXG8bT3q4TtsZusaWzujkiKlrJhw28CgYAnc7vEemEmPBqogUpl8uAI\numiO0dQ7WK6fIpi4dshSu8kNcYJF49ItgXIC8X8K3atL1xiY+iJY8UJMFw8YFanF\nTqlHXgWTtF2GD0bIAEwCDD6ycGVYkbJ9/SBpQw2YubhJBeg7c8FWi2M5jvxXfLFu\nwcqEVY9gLoihaOo3u+KOUw==\n-----END PRIVATE KEY-----\n",
+} 
